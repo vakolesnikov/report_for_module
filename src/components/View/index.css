@@ -3,6 +3,28 @@
 }
 
 .main-container {
-
+    font-family: Arial;
 }
 
+.main-title {
+    text-align: center;
+}
+
+.participant-select-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.participant-select{
+    width: 300px;
+}
+
+.participant-select-title{
+    font-weight: 700;
+    margin-right: 40px;
+}
+
+.participant-select div{
+    border-color: #F6F42E;
+}

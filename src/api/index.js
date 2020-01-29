@@ -1,20 +1,16 @@
 import { generateRequestParam, generateRequestParams } from '../helpers/api';
 
-const baseUrl = 'http://167.71.63.9:8080';
+const baseUrl = '/api';
 const participantsUrl = '/webapi/v1/participants';
 
 export function getParticipants(name = '') {
     const requestParams = name ? generateRequestParam('name', name) : '';
 
-    return fetch(`${baseUrl}${participantsUrl}${requestParams}`)
-        .then(res => res.json())
-        .then(res => console.log(res));
+    return fetch(`${baseUrl}${participantsUrl}${requestParams}`).then(res => res.json());
 }
 
 export function getAccountsOfParticipants(participantId) {
-    return fetch(`${baseUrl}${participantsUrl}/${participantId}/accounts`)
-        .then(res => res.json())
-        .then(res => console.log(res));
+    return fetch(`${baseUrl}${participantsUrl}/${participantId}/accounts`).then(res => res.json());
 }
 
 export function getHistoryOperations(participantId, accountId, params) {

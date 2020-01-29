@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -22,9 +21,16 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        })
-    ]
+    devServer: {
+        contentBase: path.join(__dirname, 'src'),
+        historyApiFallback: true,
+        proxy: {
+            // '/api': 'http://167.71.63.9:8080'
+
+            '/api': {
+                target: 'http://167.71.63.9:8080',
+                pathRewrite: { '^/api': '' }
+            }
+        }
+    }
 };

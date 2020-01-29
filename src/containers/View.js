@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
-import { initApp } from '../asyncActions';
 
 import View from '../components/View';
+import { getAccounts } from '../asyncActions';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+    participants: state.participants,
+    selectedParticipantAccounts: state.selectedParticipantAccounts
+});
 
 const mapDispatchToProps = dispatch => ({
-    actionInitApp: () => dispatch(initApp())
+    handleSetSelectedParticipant: participant => dispatch(getAccounts(participant))
 });
 
 export default connect(
