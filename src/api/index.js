@@ -13,12 +13,10 @@ export function getAccountsOfParticipants(participantId) {
     return fetch(`${baseUrl}${participantsUrl}/${participantId}/accounts`).then(res => res.json());
 }
 
-export function getHistoryOperations(participantId, accountId, params) {
+export function getHistoryOperations(participantId, accountId, params = {}) {
     const requestParams = generateRequestParams(params);
 
     return fetch(
         `${baseUrl}${participantsUrl}/${participantId}/accounts/${accountId}/history${requestParams}`
-    )
-        .then(res => res.json())
-        .then(res => console.log(res));
+    ).then(res => res.json());
 }

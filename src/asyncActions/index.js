@@ -11,9 +11,19 @@ export const initApp = dispatch => {
 };
 
 export const getAccounts = selectedParticipants => dispatch => {
-    api.getAccountsOfParticipants(selectedParticipants.participantId).then(accounts =>
-        dispatch(actions.setSelectedParticipantAccounts(accounts))
-    );
+    api.getAccountsOfParticipants(selectedParticipants.participantId).then(accounts => {
+        if (accounts.length) {
+            dispatch(actions.setSelectedParticipantAccount(accounts[0]));
+        }
+    });
 
     dispatch(actions.setSelectedParticipant(selectedParticipants));
+};
+
+export const getReport = params => (dispatch, getState) => {
+    const { formattedStartDate: start, formattedEndDate: end } = params;
+    const { id, participantId } = getState().selectedParticipantAccount;
+    api.getHistoryOperations(participantId, id, { start, end }).then(res =>
+        dispatch(actions.setHistoryOperations(res.result))
+    );
 };

@@ -2,8 +2,9 @@ import * as actionTypes from '../actionTypes';
 
 const initialState = {
     participants: [],
-    selectedParticipantAccounts: [],
-    selectedParticipant: {}
+    selectedParticipantAccount: {},
+    selectedParticipant: {},
+    historyOperations: []
 };
 
 export default (state = initialState, action) => {
@@ -27,7 +28,14 @@ export default (state = initialState, action) => {
         case actionTypes.SET_SELECTED_PARTICIPANT_ACCOUNTS: {
             return {
                 ...state,
-                selectedParticipantAccounts: action.params
+                selectedParticipantAccount: action.params
+            };
+        }
+
+        case actionTypes.SET_HISTORY_OPERATIONS: {
+            return {
+                ...state,
+                historyOperations: action.params
             };
         }
 
