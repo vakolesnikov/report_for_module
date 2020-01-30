@@ -12,3 +12,7 @@ export const setSelectedParticipantAccount = createAction(
 );
 
 export const setHistoryOperations = createAction(actionTypes.SET_HISTORY_OPERATIONS);
+
+export const getHistoryRequest = createAction(actionTypes.GET_HISTORY_REQUEST);
+export const getHistorySuccess = createAction(actionTypes.GET_HISTORY_SUCCESS);
+export const getHistoryFailure = createAction(actionTypes.GET_HISTORY_FAILURE);

@@ -4,7 +4,8 @@ const initialState = {
     participants: [],
     selectedParticipantAccount: {},
     selectedParticipant: {},
-    historyOperations: []
+    historyOperations: [],
+    loadHistoryStatus: ''
 };
 
 export default (state = initialState, action) => {
@@ -36,6 +37,27 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 historyOperations: action.params
+            };
+        }
+
+        case actionTypes.GET_HISTORY_REQUEST: {
+            return {
+                ...state,
+                loadHistoryStatus: 'request'
+            };
+        }
+
+        case actionTypes.GET_HISTORY_SUCCESS: {
+            return {
+                ...state,
+                loadHistoryStatus: 'success'
+            };
+        }
+
+        case actionTypes.GET_HISTORY_FAILURE: {
+            return {
+                ...state,
+                loadHistoryStatus: 'failure'
             };
         }
 

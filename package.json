@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "start": "node public/server.js",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,6 +36,9 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "date-fns": "^2.9.0",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-datepicker": "^2.11.0",

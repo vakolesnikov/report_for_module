@@ -6,7 +6,8 @@ import { getAccounts, getReport } from '../asyncActions';
 const mapStateToProps = state => ({
     participants: state.participants,
     selectedParticipantAccount: state.selectedParticipantAccount,
-    historyOperations: state.historyOperations
+    historyOperations: state.historyOperations,
+    loadHistoryStatus: state.loadHistoryStatus
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,5 @@
 const path = require('path');
+const config = require('./config');
 
 module.exports = {
     entry: './src/index.js',
@@ -25,10 +26,8 @@ module.exports = {
         contentBase: path.join(__dirname, 'src'),
         historyApiFallback: true,
         proxy: {
-            // '/api': 'http://167.71.63.9:8080'
-
             '/api': {
-                target: 'http://167.71.63.9:8080',
+                target: config.hostName,
                 pathRewrite: { '^/api': '' }
             }
         }

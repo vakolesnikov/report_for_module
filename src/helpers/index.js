@@ -9,3 +9,14 @@ export function generateRequestParams(params) {
     );
     return reqParams.slice(0, reqParams.length - 1);
 }
+
+export function getFormatDate(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    const newMonth = month > 9 ? month : `0${month}`;
+    const newDay = day > 9 ? day : `0${day}`;
+
+    return `${year}-${newMonth}-${newDay}`;
+}

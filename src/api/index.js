@@ -1,4 +1,4 @@
-import { generateRequestParam, generateRequestParams } from '../helpers/api';
+import { generateRequestParam, generateRequestParams } from '../helpers';
 
 const baseUrl = '/api';
 const participantsUrl = '/webapi/v1/participants';
