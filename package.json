@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
     "start": "node public/server.js",
-    "build": "webpack --mode production",
+    "build-client": "webpack --config webpack.client.config.js --mode production",
+    "build-server": "webpack --config webpack.server.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

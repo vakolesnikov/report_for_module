@@ -1,11 +1,14 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = require('./config');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        client: './src/index.js'
+    },
     output: {
         path: path.join(__dirname, '/public'),
-        filename: 'index.js'
+        filename: '[name].js'
     },
     module: {
         rules: [
@@ -22,6 +25,11 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/index.html')
+        })
+    ],
     devServer: {
         contentBase: path.join(__dirname, 'src'),
         historyApiFallback: true,
