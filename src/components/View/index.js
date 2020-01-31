@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-import { getFormatDate } from '../../helpers';
+import { getFormattedDate } from '../../helpers';
 import DatePicker from '../DatePicker';
 import Report from '../Report';
 import Button from '../Button';
@@ -51,8 +51,8 @@ export default class View extends React.Component {
             value: participantId
         }));
 
-        const formattedStartDate = getFormatDate(startDate);
-        const formattedEndDate = getFormatDate(endDate);
+        const formattedStartDate = getFormattedDate(startDate);
+        const formattedEndDate = getFormattedDate(endDate);
 
         return (
             <div className="main-container">

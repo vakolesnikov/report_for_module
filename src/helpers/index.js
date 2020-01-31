@@ -10,7 +10,7 @@ export function generateRequestParams(params) {
     return reqParams.slice(0, reqParams.length - 1);
 }
 
-export function getFormatDate(date) {
+export function getFormattedDate(date) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();

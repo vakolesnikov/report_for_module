@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
-import { getFormatDate } from '../../helpers';
+import { getFormattedDate } from '../../helpers';
 
 const REPORT_TITLES = ['№', 'Дата', 'ID операции', 'Тип операции', 'Сумма', 'Баланс'];
 
@@ -42,7 +42,7 @@ export default class Report extends React.Component {
                                     {index + 1}
                                 </td>
                                 <td className="order-table-cell">
-                                    {getFormatDate(new Date(createdDate))}
+                                    {getFormattedDate(new Date(createdDate))}
                                 </td>
                                 <td className="order-table-cell order-table-cell__id">
                                     {operationId}
