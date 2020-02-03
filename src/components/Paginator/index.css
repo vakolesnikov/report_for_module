@@ -1,0 +1,22 @@
+.paginator {
+    padding: 20px;
+    display: flex;
+}
+
+.paginator-item {
+    min-width: 20px;
+    padding: 0 7px;
+    height: 20px;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.selected-paginator-item {
+    background-color: #f8ec31;
+}

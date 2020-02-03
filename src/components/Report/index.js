@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Paginator from '../Paginator';
 import './index.css';
 import { getFormattedDate } from '../../helpers';
 
@@ -99,6 +100,11 @@ export default class Report extends React.Component {
     };
 
     render() {
-        return <>{this.renderReport()}</>;
+        return (
+            <>
+                {this.renderReport()}
+                <Paginator />
+            </>
+        );
     }
 }
