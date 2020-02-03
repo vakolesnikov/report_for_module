@@ -7,10 +7,11 @@ import reducer from './reducers';
 
 import View from './containers/View';
 import './normalize.css';
-import { initApp } from './asyncActions';
+import { initApp, updateReport } from './asyncActions';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 store.dispatch(initApp);
+setInterval(() => store.dispatch(updateReport), 30 * 1000);
 
 ReactDOM.render(
     <Provider store={store}>

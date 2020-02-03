@@ -21,15 +21,28 @@ export const getAccounts = selectedParticipants => dispatch => {
 };
 
 export const getReport = params => (dispatch, getState) => {
-    const { formattedStartDate: start, formattedEndDate: end } = params;
+    const { start, end } = params;
     const { id, participantId } = getState().selectedParticipantAccount;
     dispatch(actions.getHistoryRequest());
+
     api.getHistoryOperations(participantId, id, { start, end }).then(res => {
         if (res.result && res.result.length) {
             dispatch(actions.setHistoryOperations(res.result));
             dispatch(actions.getHistorySuccess());
+            dispatch(actions.setHistoryOperationsParams({ start, end }));
         } else {
             dispatch(actions.getHistoryFailure());
         }
     });
+};
+
+export const updateReport = (dispatch, getState) => {
+    const {
+        historyOperationsParams: { start, end },
+        selectedParticipantAccount: { id, participantId }
+    } = getState();
+
+    if (id && participantId && start && end) {
+        getReport({ start, end })(dispatch, getState);
+    }
 };

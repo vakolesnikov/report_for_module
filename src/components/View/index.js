@@ -92,7 +92,9 @@ export default class View extends React.Component {
 
                 <Button
                     isDisabled={!selectedOrganization}
-                    onClick={() => handleGetReport({ formattedStartDate, formattedEndDate })}
+                    onClick={() =>
+                        handleGetReport({ start: formattedStartDate, end: formattedEndDate })
+                    }
                     text="Сформировать отчет"
                 />
 

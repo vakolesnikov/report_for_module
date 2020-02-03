@@ -5,7 +5,11 @@ const initialState = {
     selectedParticipantAccount: {},
     selectedParticipant: {},
     historyOperations: [],
-    loadHistoryStatus: ''
+    loadHistoryStatus: '',
+    historyOperationsParams: {
+        start: null,
+        end: null
+    }
 };
 
 export default (state = initialState, action) => {
@@ -37,6 +41,13 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 historyOperations: action.params
+            };
+        }
+
+        case actionTypes.SET_HISTORY_OPERATIONS_PARAMS: {
+            return {
+                ...state,
+                historyOperationsParams: action.params
             };
         }
 
