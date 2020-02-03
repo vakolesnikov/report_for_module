@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Select from 'react-select';
+// import Select from 'react-select';
 import { getFormattedDate } from '../../helpers';
 import DatePicker from '../DatePicker';
 import Report from '../Report';
 import Button from '../Button';
+import Select from '../Select';
+import UserIcon from '../../ui/UserIcon';
+
 import './index.css';
 
 export default class View extends React.Component {
@@ -32,10 +35,10 @@ export default class View extends React.Component {
 
     handleOrganizationChange = selectedOrganization => {
         const { handleSetSelectedParticipant } = this.props;
-        const { label, value } = selectedOrganization;
+        const { title, value } = selectedOrganization;
 
         this.setState({ selectedOrganization });
-        handleSetSelectedParticipant({ name: label, participantId: value });
+        handleSetSelectedParticipant({ name: title, participantId: value });
     };
 
     handleStartDateChange = startDate => this.setState({ startDate });
@@ -47,7 +50,7 @@ export default class View extends React.Component {
         const { participants, loadHistoryStatus, handleGetReport, historyOperations } = this.props;
 
         const selectOrganizationOptions = participants.map(({ participantId, name }) => ({
-            label: name,
+            title: name,
             value: participantId
         }));
 
@@ -56,47 +59,53 @@ export default class View extends React.Component {
 
         return (
             <div className="main-container">
-                <h1 className="main-title">
-                    Модуль формирования финансового отчета «Account Register»
-                </h1>
-                <div className="select-panel">
-                    <div className="select-panel-item">
-                        <span className="select-panel-title">Выберите УОТ:</span>
+                <div className="top-navigation-panel">
+                    <div className="top-navigation-panel__item">
                         <Select
-                            className="participant-select common-select"
-                            value={selectedOrganization}
-                            onChange={this.handleOrganizationChange}
+                            className="user-select"
                             options={selectOrganizationOptions}
-                            placeholder="не выбрано"
+                            onChange={this.handleOrganizationChange}
+                            OptionIcon={UserIcon}
+                            SelectIcon={UserIcon}
+                            title="Пользователь"
                         />
                     </div>
 
-                    <div className="select-panel-item">
-                        <span className="select-panel-title">Выберите начальную дату</span>
+                    <div className="top-navigation-panel__item select-date-item">
+                        <span className="top-navigation-panel__item-title">Начальная дата</span>
                         <DatePicker
                             onChange={this.handleStartDateChange}
                             selected={startDate}
                             maxDate={endDate}
+                            dateFormat="dd.MM.yyyy"
                         />
                     </div>
-                    <div className="select-panel-item">
-                        <span className="select-panel-title">Выберите конечную дату</span>
+
+                    <div className="top-navigation-panel__item select-date-item">
+                        <span className="top-navigation-panel__item-title">Конечная дата</span>
                         <DatePicker
                             onChange={this.handleEndDateChange}
                             selected={endDate}
                             maxDate={this.currentDate}
                             minDate={startDate}
+                            dateFormat="dd.MM.yyyy"
+                            showMonthDropdown
+                            showYearDropdown
+                        />
+                    </div>
+                    <div className="top-navigation-panel__item report-button-container">
+                        <Button
+                            isDisabled={!selectedOrganization}
+                            onClick={() =>
+                                handleGetReport({
+                                    start: formattedStartDate,
+                                    end: formattedEndDate
+                                })
+                            }
+                            text="Сформировать отчет"
                         />
                     </div>
                 </div>
-
-                <Button
-                    isDisabled={!selectedOrganization}
-                    onClick={() =>
-                        handleGetReport({ start: formattedStartDate, end: formattedEndDate })
-                    }
-                    text="Сформировать отчет"
-                />
 
                 <Report
                     historyOperations={historyOperations}

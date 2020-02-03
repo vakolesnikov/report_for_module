@@ -12,32 +12,47 @@
 
 .main-container {
     font-family: Arial;
+    width: 1300px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.top-navigation-panel {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    background-color: #fcfcfc;
+}
+
+.top-navigation-panel__item {
+    border: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+}
+
 .main-title {
     text-align: center;
 }
 
-.participant-select{
-    width: 300px;
-}
-
-.participant-select div{
-    border-color: #f8ec31;
-}
-
-.select-panel {
-    width: 600px;
-    margin-bottom: 40px;
-}
-
-.select-panel-title{
-    font-weight: 700;
+.top-navigation-panel__item-title{
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #63666a;
     margin-right: 40px;
+}
+
+.select-date-item {
+    padding: 0 20px
+}
+
+.report-button-container {
+    margin-left: auto;
 }
 
 .select-panel-item {
@@ -51,4 +66,120 @@
     padding: 80px;
     font-size: 20px;
     color: #808080;
+}
+
+
+
+.user-select {
+    width: 290px;
+    height: 60px;
+    padding: 10px 35px 10px 70px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.user-select .user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #f6f42e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+.user-select .arrow-icon {
+    position: absolute;
+    right: 25px;
+    top: 27px;
+    width: 10px;
+    height: 6px;
+    transition: .3s;
+}
+.user-select .arrow-icon svg {
+    position: absolute;
+}
+.user-select .arrow-icon-rotate {
+    transform: rotate(180deg);
+}
+.user-select .select-title {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #63666a;
+}
+.user-select .options-container {
+    position: absolute;
+    top: 61px;
+    left: 0;
+    width: 100%;
+}
+.user-select .option-text {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #63666a;
+}
+.user-select .option-item {
+    padding: 15px 0 15px 70px;
+    display: flex;
+    align-items: center;
+}
+.user-select .option-item:hover {
+    background-color: #f7f7f7;
+}
+.user-select .option-item-icon {
+    margin-right: 10px;
+}
+
+.date-select {
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    width: 135px;
+    height: 50px;
+    padding: 0 20px 0 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.date-select .arrow-icon {
+    transition: .3s;
+}
+
+.date-select .arrow-icon-rotate {
+    transform: rotate(180deg);
+}
+.date-select .options-container {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+}
+.date-select .option-text {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #63666a;
+}
+.date-select .option-item {
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+}
+.date-select .option-item:hover {
+    background-color: #f7f7f7;
 }

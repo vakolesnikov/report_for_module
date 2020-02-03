@@ -3,7 +3,19 @@ import PropTypes from 'prop-types';
 import './index.css';
 import { getFormattedDate } from '../../helpers';
 
-const REPORT_TITLES = ['№', 'Дата', 'ID операции', 'Тип операции', 'Сумма', 'Баланс'];
+const OPERATION_TYPES = {
+    RESERVE: 'Списание',
+    PAYMENT: 'Зачисление'
+};
+
+const REPORT_TITLES = [
+    '№',
+    'Дата создания',
+    'Идентификатор отчета',
+    'Тип операции',
+    'Расход',
+    'Баланс'
+];
 
 export default class Report extends React.Component {
     static propTypes = {
@@ -47,7 +59,9 @@ export default class Report extends React.Component {
                                 <td className="order-table-cell order-table-cell__id">
                                     {operationId}
                                 </td>
-                                <td className="order-table-cell">{operationType}</td>
+                                <td className="order-table-cell">
+                                    {OPERATION_TYPES[operationType]}
+                                </td>
                                 <td className="order-table-cell">{amount}</td>
                                 <td className="order-table-cell">{balance}</td>
                             </tr>

@@ -17,6 +17,6 @@ export function getHistoryOperations(participantId, accountId, params = {}) {
     const requestParams = generateRequestParams(params);
 
     return fetch(
-        `${baseUrl}${participantsUrl}/${participantId}/accounts/${accountId}/history${requestParams}`
+        `${baseUrl}${participantsUrl}/${participantId}/accounts/${accountId}/history${requestParams}&limit=100`
     ).then(res => res.json());
 }
