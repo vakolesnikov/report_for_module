@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UserIcon from '../../ui/UserIcon';
 import ArrowIcon from '../../ui/ArrowIcon';
-import './index.css';
 
 export default class Select extends React.Component {
     static propTypes = {
@@ -45,16 +44,12 @@ export default class Select extends React.Component {
         const { options, title, OptionIcon, SelectIcon, className } = this.props;
 
         return (
-            <div
-                className={className}
-                onClick={() => this.setState({ showOptions: !showOptions })}
-            >
+            <div className={className} onClick={() => this.setState({ showOptions: !showOptions })}>
                 {SelectIcon && (
                     <div className="user-icon">
                         <UserIcon />
                     </div>
                 )}
-
                 {title && <div className="select-title">{title}</div>}
 
                 <div className="option-text">{selectedOption.title}</div>

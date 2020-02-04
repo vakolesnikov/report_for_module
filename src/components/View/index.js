@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Select from 'react-select';
 import { getFormattedDate } from '../../helpers';
 import DatePicker from '../DatePicker';
 import Report from '../Report';
 import Button from '../Button';
 import Select from '../Select';
 import UserIcon from '../../ui/UserIcon';
-
+import { BASE_DATE_FORMAT } from '../../constants';
 import './index.css';
 
 export default class View extends React.Component {
@@ -70,17 +69,15 @@ export default class View extends React.Component {
                             title="Пользователь"
                         />
                     </div>
-
                     <div className="top-navigation-panel__item select-date-item">
                         <span className="top-navigation-panel__item-title">Начальная дата</span>
                         <DatePicker
                             onChange={this.handleStartDateChange}
                             selected={startDate}
                             maxDate={endDate}
-                            dateFormat="dd.MM.yyyy"
+                            dateFormat={BASE_DATE_FORMAT}
                         />
                     </div>
-
                     <div className="top-navigation-panel__item select-date-item">
                         <span className="top-navigation-panel__item-title">Конечная дата</span>
                         <DatePicker
@@ -88,9 +85,7 @@ export default class View extends React.Component {
                             selected={endDate}
                             maxDate={this.currentDate}
                             minDate={startDate}
-                            dateFormat="dd.MM.yyyy"
-                            showMonthDropdown
-                            showYearDropdown
+                            dateFormat={BASE_DATE_FORMAT}
                         />
                     </div>
                     <div className="top-navigation-panel__item report-button-container">

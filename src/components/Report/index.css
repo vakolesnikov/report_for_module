@@ -1,25 +1,29 @@
+.order-table-container {
+    padding-top: 40px;
+}
+
 .order-table {
+    width: 100%;
     border-collapse: collapse;
     background-color: #fcfcfc;
-    margin-top: 40px;
 }
 
 .order-table-cell {
     border: 1px solid #D9D9D9;
     padding: 10px 25px;
-    text-align: center;
-    font-style: normal;
+    text-align: left;
     font-weight: normal;
     font-size: 12px;
     line-height: 20px;
     color: #63666A;
 }
 
-.order-table-cell.order-table-cell__id {
-    text-align: left;
+.number-cell {
+    text-align: center;
 }
 
 .order-table-cell.order-table-cell__index {
+    text-align: center;
     font-weight: 700;
 }
 
@@ -28,4 +32,68 @@
     line-height: 12px;
     color: #63666A;
     font-weight: 700;
+}
+
+.sort-icon {
+    margin-right: 7px;
+    transition: .3s;
+}
+
+.sort-icon__to-bottom  svg{
+    transform: rotate(180deg);
+}
+
+.report-count-select__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.select-count-title {
+    color: #B8B8B8;
+    margin-right: 10px;
+}
+
+.report-count-select {
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    width: 90px;
+    height: 40px;
+    padding: 0 20px 0 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.report-count-select .arrow-icon {
+    transition: .3s;
+}
+
+.report-count-select .arrow-icon-rotate {
+    transform: rotate(180deg);
+}
+.report-count-select .options-container {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+.report-count-select .option-text {
+    font-size: 14px;
+    line-height: 19px;
+    color: #63666a;
+}
+.report-count-select .option-item {
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    text-align: center;
+}
+.report-count-select .option-item:hover {
+    background-color: #f7f7f7;
 }

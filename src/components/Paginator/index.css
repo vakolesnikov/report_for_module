@@ -10,11 +10,22 @@
     border-radius: 3px;
     text-align: center;
     cursor: pointer;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
     line-height: 20px;
+}
+
+.paginator-button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.increment-button {
+    transform: rotate(270deg);
+}
+
+.decrement-button {
+    transform: rotate(90deg);
 }
 
 .selected-paginator-item {

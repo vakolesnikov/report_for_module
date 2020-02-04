@@ -1,58 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDatePicker from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
-
 import Select from '../Select';
-
 import CustomInput from './CustomInput';
+import { MONTHS, MONTHS_FROM_CURRENT_DAY } from '../../constants';
 import 'react-datepicker/dist/react-datepicker.css';
 import './index.css';
 
 const years = new Array(11).fill(2010).map((year, index) => year + index);
 
-const months = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь'
-];
-const monthsFromCurrentDay = [
-    'Января',
-    'Февраля',
-    'Марта',
-    'Апреля',
-    'Мая',
-    'Июня',
-    'Июля',
-    'Августа',
-    'Сентября',
-    'Октября',
-    'Ноября',
-    'Декабря'
-];
-
 const generateOptions = options => options.map(option => ({ title: option, value: option }));
 
 const DatePicker = props => {
-    const customHeader = ({
-        date,
-        changeYear,
-        changeMonth,
-        decreaseMonth,
-        increaseMonth,
-        prevMonthButtonDisabled,
-        nextMonthButtonDisabled
-    }) => {
+    const customHeader = ({ date, changeYear, changeMonth }) => {
         const yearsOptions = generateOptions(years);
-        const monthsOptions = generateOptions(months);
+        const monthsOptions = generateOptions(MONTHS);
         const { selected } = props;
 
         const slectedDay = selected.getDate();
@@ -62,7 +25,7 @@ const DatePicker = props => {
         return (
             <div className="custom-header">
                 <div className="selected-day">
-                    {slectedDay}, {monthsFromCurrentDay[selectedMonth]}
+                    {slectedDay}, {MONTHS_FROM_CURRENT_DAY[selectedMonth]}
                 </div>
                 <div className="select-container">
                     <Select
@@ -76,12 +39,12 @@ const DatePicker = props => {
 
                     <Select
                         className="date-select"
-                        onChange={({ value }) => changeMonth(months.indexOf(value))}
+                        onChange={({ value }) => changeMonth(MONTHS.indexOf(value))}
                         options={monthsOptions}
                         defaultSelectOptions={monthsOptions[selectedMonth]}
                     />
                 </div>
-                <div className="current-month">{months[date.getMonth()]}</div>
+                <div className="current-month">{MONTHS[date.getMonth()]}</div>
             </div>
         );
     };
@@ -94,6 +57,10 @@ const DatePicker = props => {
             renderCustomHeader={customHeader}
         />
     );
+};
+
+DatePicker.propTypes = {
+    selected: PropTypes.object.isRequired
 };
 
 export default DatePicker;

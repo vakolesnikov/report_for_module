@@ -41,7 +41,6 @@
 }
 
 .custom-input {
-    font-family: Segoe UI;
     border: none;
     width: 150px;
     height: 40px;
@@ -51,8 +50,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-
-    font-style: normal;
     font-weight: 600;
     font-size: 14px;
     color: #63666a;
@@ -71,9 +68,6 @@
     display: flex;
     align-items: center;
     padding-left: 11px;
-
-    font-family: Segoe UI;
-    font-style: normal;
     font-weight: 600;
     font-size: 12px;
     line-height: 12px;
@@ -83,8 +77,6 @@
 
 .current-month {
     height: 20px;
-    font-family: Segoe UI;
-    font-style: normal;
     font-weight: 600;
     font-size: 12px;
     color: #63666a;

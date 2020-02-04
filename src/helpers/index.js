@@ -10,7 +10,7 @@ export function generateRequestParams(params) {
     return reqParams.slice(0, reqParams.length - 1);
 }
 
-export function getFormattedDate(date) {
+export function getFormattedDate(date, separator = '-') {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
@@ -18,5 +18,20 @@ export function getFormattedDate(date) {
     const newMonth = month > 9 ? month : `0${month}`;
     const newDay = day > 9 ? day : `0${day}`;
 
-    return `${year}-${newMonth}-${newDay}`;
+    return `${year}${separator}${newMonth}${separator}${newDay}`;
+}
+
+export function getFormattedDateTime(date) {
+    const reverseDate = getFormattedDate(date, '.')
+        .split('.')
+        .reverse()
+        .join('.');
+
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+
+    const newHours = String(hours).length > 1 ? hours : `0${hours}`;
+    const newMinutes = String(minutes).length > 1 ? minutes : `0${minutes}`;
+
+    return `${reverseDate} ${newHours}:${newMinutes}`;
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devclient": "webpack-dev-server --config webpack.client.config.js --mode development --open --hot",
+    "devstart": "webpack-dev-server --config webpack.client.config.js --mode development --open --hot",
     "start": "node public/server.js",
     "build-client": "webpack --config webpack.client.config.js --mode production",
     "build-server": "webpack --config webpack.server.config.js --mode production",
