@@ -14,9 +14,6 @@ class Paginator extends React.Component {
 
         const { countPages } = this.props;
 
-        this.countPages = countPages;
-        this.pages = new Array(countPages).fill(0).map((_, index) => index);
-
         this.state = {
             currentPage: 0,
             startPage: 0,
@@ -69,6 +66,8 @@ class Paginator extends React.Component {
 
     render() {
         const { currentPage, startPage, endPage } = this.state;
+        const { countPages } = this.props;
+        const pages = new Array(countPages).fill(0).map((_, index) => index);
 
         return (
             <div className="paginator">
@@ -80,7 +79,7 @@ class Paginator extends React.Component {
                 >
                     <ArrowIcon />
                 </button>
-                {this.pages.slice(startPage, endPage).map(page => (
+                {pages.slice(startPage, endPage).map(page => (
                     <div
                         key={page}
                         className={`paginator-item${
@@ -93,7 +92,7 @@ class Paginator extends React.Component {
                 ))}
                 <button
                     onClick={() => this.changeCurrentPage('increment')}
-                    disabled={currentPage === this.countPages}
+                    disabled={currentPage === countPages - 1}
                     className="increment-button paginator-button"
                     type="button"
                 >
