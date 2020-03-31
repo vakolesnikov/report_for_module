@@ -5,10 +5,21 @@
 Команды для запуска:
 -------------------
 
+Запуск в режиме разработки:
+```
+npm install
+```
+```
+npm run devstart
+```
+
+
+
+Запуск в docker:
 ```
 docker build -t report_for_module-docker .
 ```
-Собироает docker контейнер
+Собирает docker контейнер
 <br />
 <br />
 
